@@ -1,6 +1,6 @@
 # 2020 CDC Project - Football Across the Ages
 
-Team Members: Nihar Vaidya, Raghu Padma, Meghana Vattigunta, Rohitha Madduluri
+Team Members: Nihar Vaidya, Raghuvara Padma, Meghana Vattigunta, Rohitha Madduluri
 
 ---
 **PRESENTATION LINK:** https://sites.google.com/view/cdcthingy/significant-statistics-and-linear-modeling 
