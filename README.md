@@ -3,9 +3,9 @@
 Team Members: Nihar Vaidya, Raghu Padma, Meghana Vattigunta, Rohitha Madduluri
 
 ---
-** PRESENTATION LINKE HERE: https://sites.google.com/view/cdcthingy/significant-statistics-and-linear-modeling **
+**PRESENTATION LINK:** https://sites.google.com/view/cdcthingy/significant-statistics-and-linear-modeling 
 
-** VIDEO LINK HERE: **
+**VIDEO LINK** : 
 
 ---
 
