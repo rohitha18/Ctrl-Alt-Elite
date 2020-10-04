@@ -1,9 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv('/Users/raghuvarapadma/PycharmProjects/Ctrl-Alt-Elite/NFLDATA_EDITED_stat_diff/NFLDATA2013.csv')
+df = pd.read_csv('/Users/raghuvarapadma/PycharmProjects/Ctrl-Alt-Elite/COLLEGE_EDITED_stat_diff/COLLEGEDATA2000.csv')
 
-df['season'] = 2013
+df.rename(columns={"Week":"Date", "Team":"TeamName"}, inplace=True)
 
-print(df)
-
-df.to_csv('/Users/raghuvarapadma/PycharmProjects/Ctrl-Alt-Elite/NFLDATA_EDITED_stat_diff/NFLDATA2013.csv')
+df.to_csv('/Users/raghuvarapadma/PycharmProjects/Ctrl-Alt-Elite/COLLEGE_EDITED_stat_diff/COLLEGEDATA2000.csv')
