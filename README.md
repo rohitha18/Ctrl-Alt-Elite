@@ -5,7 +5,7 @@ Team Members: Nihar Vaidya, Raghuvara Padma, Meghana Vattigunta, Rohitha Maddulu
 ---
 **PRESENTATION LINK:** https://sites.google.com/view/ctrl-alt-elite/home?authuser=0deling 
 
-**VIDEO LINK** : 
+**VIDEO LINK** : https://youtu.be/Vxht3JtcWyw
 
 ---
 
