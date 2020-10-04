@@ -1,0 +1,855 @@
+---
+title: "Predicting Score Differentials - CDC 2020"
+output: 
+  html_document:
+    df_print: paged
+---
+```{r}
+
+```
+
+```{r message=FALSE, warning=FALSE}
+# message=FALSE, warning=FALSE suppress warnings and messages from appearing in knitted html
+
+library(readr)
+library(mosaic)
+library(car)
+library(leaps)
+library(dplyr)
+
+source("ShowSubsets.r")
+COLLEGEDATA2000 <- read_csv("COLLEGEDATA2000.csv")
+
+
+```
+
+```{r}
+all2000 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2000, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2000)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2000 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2000)
+MSE = (summary(Full2000)$sigma)^2
+step(Full2000, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2000 = lm(ScoreDiff~1, data=COLLEGEDATA2000)
+step(none2000, scope=list(upper=Full2000), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2000, scope=list(upper=Full2000), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2000)
+```
+
+```{r}
+plot(Full2000)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2000)
+```
+
+
+```{r}
+
+COLLEGEDATA2001 <- read_csv("COLLEGEDATA2001.csv")
+
+```
+
+```{r}
+all2001 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2001, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2001)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2001 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2001)
+MSE = (summary(Full2001)$sigma)^2
+step(Full2001, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2001 = lm(ScoreDiff~1, data=COLLEGEDATA2001)
+step(none2001, scope=list(upper=Full2001), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2001, scope=list(upper=Full2001), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2001)
+```
+
+```{r}
+plot(Full2001)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2001)
+```
+
+
+```{r}
+
+COLLEGEDATA2002 <- read_csv("COLLEGEDATA2002.csv")
+
+
+```
+
+```{r}
+all2002 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2002, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2002)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2002 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2002)
+MSE = (summary(Full2002)$sigma)^2
+step(Full2002, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2002 = lm(ScoreDiff~1, data=COLLEGEDATA2002)
+step(none2002, scope=list(upper=Full2002), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2002, scope=list(upper=Full2002), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2002)
+```
+
+```{r}
+plot(Full2002)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2002)
+```
+
+
+```{r}
+
+COLLEGEDATA2003 <- read_csv("COLLEGEDATA2003.csv")
+
+
+```
+
+```{r}
+all2003 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2003, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2003)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2003 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2003)
+MSE = (summary(Full2003)$sigma)^2
+step(Full2003, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2003 = lm(ScoreDiff~1, data=COLLEGEDATA2003)
+step(none2003, scope=list(upper=Full2003), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2003, scope=list(upper=Full2003), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2003)
+```
+
+```{r}
+plot(Full2003)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2003)
+```
+
+
+```{r}
+
+COLLEGEDATA2004 <- read_csv("COLLEGEDATA2004.csv")
+
+```
+
+```{r}
+all2004 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2004, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2004)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2004 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2004)
+MSE = (summary(Full2004)$sigma)^2
+step(Full2004, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2004 = lm(ScoreDiff~1, data=COLLEGEDATA2004)
+step(none2004, scope=list(upper=Full2004), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2004, scope=list(upper=Full2004), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2004)
+```
+
+```{r}
+plot(Full2004)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2004)
+```
+
+
+```{r}
+
+COLLEGEDATA2005 <- read_csv("COLLEGEDATA2005.csv")
+
+
+```
+
+```{r}
+all2005 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2005, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2005)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2005 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2005)
+MSE = (summary(Full2005)$sigma)^2
+step(Full2005, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2005 = lm(ScoreDiff~1, data=COLLEGEDATA2005)
+step(none2005, scope=list(upper=Full2005), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2005, scope=list(upper=Full2005), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2005)
+```
+
+```{r}
+plot(Full2005)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2005)
+```
+
+
+```{r}
+
+COLLEGEDATA2006 <- read_csv("COLLEGEDATA2006.csv")
+
+
+```
+
+```{r}
+all2006 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2006, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2006)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2006 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2006)
+MSE = (summary(Full2006)$sigma)^2
+step(Full2006, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2006 = lm(ScoreDiff~1, data=COLLEGEDATA2006)
+step(none2006, scope=list(upper=Full2006), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2006, scope=list(upper=Full2006), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2006)
+```
+
+```{r}
+plot(Full2006)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2006)
+```
+
+
+```{r}
+
+COLLEGEDATA2007 <- read_csv("COLLEGEDATA2007.csv")
+
+
+```
+
+```{r}
+all2007 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2007, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2007)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2007 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2007)
+MSE = (summary(Full2007)$sigma)^2
+step(Full2007, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2007 = lm(ScoreDiff~1, data=COLLEGEDATA2007)
+step(none2007, scope=list(upper=Full2007), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2007, scope=list(upper=Full2007), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2007)
+```
+
+```{r}
+plot(Full2007)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2007)
+```
+
+
+```{r}
+
+COLLEGEDATA2008 <- read_csv("COLLEGEDATA2008.csv")
+
+
+```
+
+```{r}
+all2008 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2008, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2008)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2008 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2008)
+MSE = (summary(Full2008)$sigma)^2
+step(Full2008, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2008 = lm(ScoreDiff~1, data=COLLEGEDATA2008)
+step(none2008, scope=list(upper=Full2008), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2008, scope=list(upper=Full2008), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2008)
+```
+
+```{r}
+plot(Full2008)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2008)
+```
+
+
+```{r}
+
+COLLEGEDATA2009 <- read_csv("COLLEGEDATA2009.csv")
+
+
+```
+
+```{r}
+all2009 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2009, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2009)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2009 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2009)
+MSE = (summary(Full2009)$sigma)^2
+step(Full2009, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2009 = lm(ScoreDiff~1, data=COLLEGEDATA2009)
+step(none2009, scope=list(upper=Full2009), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2009, scope=list(upper=Full2009), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2009)
+```
+
+```{r}
+plot(Full2009)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2009)
+```
+
+
+```{r}
+
+COLLEGEDATA2010 <- read_csv("COLLEGEDATA2010.csv")
+
+
+```
+
+```{r}
+all2010 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2010, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2010)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2010 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2010)
+MSE = (summary(Full2010)$sigma)^2
+step(Full2010, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2010 = lm(ScoreDiff~1, data=COLLEGEDATA2010)
+step(none2010, scope=list(upper=Full2010), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2010, scope=list(upper=Full2010), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2010)
+```
+
+```{r}
+plot(Full2010)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2010)
+```
+
+
+```{r}
+
+COLLEGEDATA2011 <- read_csv("COLLEGEDATA2011.csv")
+
+
+```
+
+```{r}
+all2011 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2011)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2011 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011)
+MSE = (summary(Full2011)$sigma)^2
+step(Full2011, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2011 = lm(ScoreDiff~1, data=COLLEGEDATA2011)
+step(none2011, scope=list(upper=Full2011), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2011, scope=list(upper=Full2011), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2011)
+```
+
+```{r}
+plot(Full2011)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011)
+```
+
+
+```{r}
+
+COLLEGEDATA2011 <- read_csv("COLLEGEDATA2011.csv")
+
+
+```
+
+```{r}
+all2011 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2011)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2011 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011)
+MSE = (summary(Full2011)$sigma)^2
+step(Full2011, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2011 = lm(ScoreDiff~1, data=COLLEGEDATA2011)
+step(none2011, scope=list(upper=Full2011), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2011, scope=list(upper=Full2011), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2011)
+```
+
+```{r}
+plot(Full2011)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2011)
+```
+
+
+```{r}
+
+COLLEGEDATA2012 <- read_csv("COLLEGEDATA2012.csv")
+
+
+```
+
+```{r}
+all2012 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2012, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2012)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2012 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2012)
+MSE = (summary(Full2012)$sigma)^2
+step(Full2012, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2012 = lm(ScoreDiff~1, data=COLLEGEDATA2012)
+step(none2012, scope=list(upper=Full2012), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2012, scope=list(upper=Full2012), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2012)
+```
+
+```{r}
+plot(Full2012)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2012)
+```
+
+
+```{r}
+
+COLLEGEDATA2013 <- read_csv("COLLEGEDATA2013.csv")
+
+
+```
+
+```{r}
+all2013 = regsubsets(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2013, nbest = 2, nvmax = 25)
+
+ShowSubsetsTable = ShowSubsets(all2013)
+head(arrange(ShowSubsetsTable, Cp))
+
+```
+
+```{r}
+Full2013 = lm(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2013)
+MSE = (summary(Full2013)$sigma)^2
+step(Full2013, scale=MSE, trace = FALSE)
+```
+
+```{r}
+none2013 = lm(ScoreDiff~1, data=COLLEGEDATA2013)
+step(none2013, scope=list(upper=Full2013), scale=MSE, direction="forward", trace = FALSE)
+```
+
+```{r}
+step(none2013, scope=list(upper=Full2013), scale=MSE, trace = FALSE)
+```
+
+```{r}
+summary(Full2013)
+```
+
+```{r}
+plot(Full2013)
+```
+
+```{r}
+plot(ScoreDiff~RushAttDiff+RushYdsDiff+PassAttDiff+PassCompDiff+PassYdsDiff+PassIntDiff+FumblesDiff, data = COLLEGEDATA2013)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
